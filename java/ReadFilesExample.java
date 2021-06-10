@@ -3,6 +3,7 @@ import java.nio.file.Files ;
 import java.nio.file.Path ;
 import java.nio.file.Paths ;
 import java.util.stream.Stream;
+import java.io.BufferedReader;
 
 
 class ReadFilesExample
@@ -19,7 +20,9 @@ class ReadFilesExample
 
 		try(BufferedReader bf = Files.newBufferedReader(Paths.get("addresses.csv"))){
 			bf.lines()
-			.
+			.forEach(System.out :: println);
+		}catch(IOException e){
+			
 		}
 	} 
 }
