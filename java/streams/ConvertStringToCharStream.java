@@ -7,6 +7,7 @@ class ConvertStringToCharStream{
      String str = "this_is_legal" ;
      str.chars()
         .mapToObj(c -> (char)c)
+        .filter(c -> !c.equals('_'))
         .forEach(System.out :: println) ;
 
 /* ---  store stream of char as their int values
