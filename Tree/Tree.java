@@ -1,10 +1,8 @@
 class Tree{
 
-   private int treeSize;
-   static Node data, left, right ;
-
    static class Node{
-
+      int data ;
+      Node left, right ;
    	Node(int data){
    		this.data = data ;
          left = null ;
@@ -12,34 +10,37 @@ class Tree{
    	}
    }
 
-   Tree(int n){
-    treeSize = n ;
+
+   public void addNode(Node root , Node newNode){
+   
+      if(root.data >= newNode.data){
+         addNode(root.left , newNode) ;
+         root.left = newNode ;
+      }
+      else{
+         addNode(root.right , newNode) ;
+         root.right = newNode ;
+      }
    }
 
-   public Node addNode(Node root , int value){
-    if(root.data < value){
-       root.right = addNode(root, value) ;
-    }else{
-     root.left = addNode(root, value) ;
-    }
+   // public void preNode(Node root){
 
-    return root ;
-   }
+   //    if(root == null)
+   //       return ;
 
-   public void preNode(Node root){
-
-      if(root == null)
-         return ;
-
-      System.out.println(root.data) ;
-      preNode(root.left) ;
-      preNode(root.right) ;
-   }
+   //    System.out.println(root.data) ;
+   //    preNode(root.left) ;
+   //    preNode(root.right) ;
+   // }
 
 	public static void main(String[] args){
+      Tree tree = new Tree() ;
       Node root = new Node(10) ;
-      Tree tree = new Tree(5) ;
-      tree.addNode(root, 4);
-      tree.addNode(root, 12);
+      tree.addNode(root, new Node(12)) ;
+      tree.addNode(root, new Node(9)) ;
+      tree.addNode(root, new Node(11)) ;
+      // Tree tree = new Tree(5) ;
+      // tree.addNode(root, 4);
+      // tree.addNode(root, 12);
 	}
 }
