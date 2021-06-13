@@ -43,14 +43,14 @@ class Tree{
       return root ;
    }
 
-   public void preNode(Node root){
+   public void preOrder(Node root){
 
       if(root == null)
          return ;
 
       System.out.println(root.data) ;
-      preNode(root.left) ;
-      preNode(root.right) ;
+      preOrder(root.left) ;
+      preOrder(root.right) ;
    }
 
 	public static void main(String[] args){
@@ -67,7 +67,7 @@ class Tree{
       tree.addNodeMethod2(root, 4) ;
       tree.addNodeMethod2(root, 12) ;
 
-      tree.preNode(root) ;
+      tree.preOrder(root) ;
       
 	}
 }
