@@ -12,7 +12,7 @@ class RunInsertElement implements Runnable{
 
 class BlockingQueue{
 
-   private static final int queueSize = 10 ;
+   private static final int queueSize = 40 ;
    private static int[] customQueue = new int[queueSize] ;
 
    public static boolean add(int element){
@@ -20,11 +20,12 @@ class BlockingQueue{
     synchronized(customQueue){
     System.out.println("Element to insert "+element+" Started by " + Thread.currentThread().getName()) ;
     int customQueueLength = customQueue.length ;
-   	if(customQueueLength == 10){
+   	if(customQueueLength == queueSize){
    		return false ;
    	}
       customQueue[customQueueLength] = element ;
     }
+
     return true ;
    }
 
@@ -36,10 +37,9 @@ class BlockingQueue{
 
    public static void main(String[] args) throws InterruptedException{
 
-   	for(int i = 0 ; i < 10 ; i++){
+   	for(int i = 0 ; i < queueSize ; i++){
      new Thread(new RunInsertElement(i), "Thread "+i).start() ;
    	}
-   	Thread.sleep(2000) ;
-   BlockingQueue.printQueue() ;
+    BlockingQueue.printQueue() ;
 	}
 }
