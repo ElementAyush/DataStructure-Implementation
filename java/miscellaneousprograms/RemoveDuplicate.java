@@ -17,6 +17,5 @@ class RemoveDuplicate{
         	}	
         }
         System.out.println(stb) ;
-
 	}
 }
