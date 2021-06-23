@@ -17,7 +17,6 @@ class BinarySearch{
 			}
 			if(array[mid] < element){
 				mid = (mid + end) / 2 ;
-				System.out.println(mid) ;
 			}
 		} 
 		return false ;
