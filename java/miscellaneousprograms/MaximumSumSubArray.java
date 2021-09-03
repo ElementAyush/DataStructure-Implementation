@@ -19,6 +19,5 @@ class MaximumSumSubArray{
 			}
 		}
 		System.out.println("And max sum is : " + maxSum) ;
-
 	}
 }
